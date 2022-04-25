@@ -1,6 +1,6 @@
 // when the extension is installed for the first time, set default values
 
-chrome.runtime.onInstalled.addListene(() => {
+chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({
     toggleSitesActive: false,
     toggleSitesList: 'example.com'
@@ -49,9 +49,9 @@ chrome.webRequest.onBeforeRequest.addListener(
 )
 
 // any time that a storage item is updated, update the global variable
-chrome.storage.onChanged.addListener((changees, namespace) => {
+chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync') {
-    if (changees.toggleSitesActive) {
+    if (changes.toggleSitesActive) {
       toggleSiteActive = changes.toggleSitesActive.newValue
     }
     if (changes.toggleSitesList) {
