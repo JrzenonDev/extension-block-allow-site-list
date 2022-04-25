@@ -6,3 +6,20 @@ chrome.runtime.onInstalled.addListene(() => {
     toggleSitesList: 'example.com'
   }, () => {})
 })
+
+// set up the initial chrome storage values
+let toggleSitesActive = false
+let toggleSitesList = 'example.com'
+
+// replace the initial values above with ondes from synced storage
+chrome.storage.sync.get([
+  'toggleSitesActive',
+  'toggleSitesList'
+], (result) => {
+  toggleSitesActive = result.toggleSitesActive
+  toggleSitesList = result.toggleSitesList
+})
+
+
+
+
