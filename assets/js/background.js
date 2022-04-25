@@ -7,6 +7,8 @@ chrome.runtime.onInstalled.addListener(() => {
   }, () => {})
 })
 
+
+
 // set up the initial chrome storage values
 let toggleSitesActive = false
 let toggleSitesList = 'example.com'
@@ -52,7 +54,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync') {
     if (changes.toggleSitesActive) {
-      toggleSiteActive = changes.toggleSitesActive.newValue
+      toggleSitesActive = changes.toggleSitesActive.newValue
     }
     if (changes.toggleSitesList) {
       toggleSitesList = changes.toggleSitesList.newValue
