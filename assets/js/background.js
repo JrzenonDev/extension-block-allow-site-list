@@ -48,6 +48,17 @@ chrome.webRequest.onBeforeRequest.addListener(
   ]
 )
 
+// any time that a storage item is updated, update the global variable
+chrome.storage.onChanged.addListener((changees, namespace) => {
+  if (namespace === 'sync') {
+    if (changees.toggleSitesActive) {
+      toggleSiteActive = changes.toggleSitesActive.newValue
+    }
+    if (changes.toggleSitesList) {
+      toggleSitesList = changes.toggleSitesList.newValue
+    }
+  }
+})
 
 
 
