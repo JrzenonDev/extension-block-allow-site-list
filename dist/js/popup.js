@@ -26,21 +26,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       active: true,
       list: "example.com",
       icons: {
-        active: 'images/icon-48x48.png',
-        inactive: 'images/icon-48x48-off.png'
+        active: "images/icon-48x48.png",
+        inactive: "images/icon-48x48-off.png"
       }
     };
   },
   created: function created() {
     var _this = this;
 
-    chrome.storage.sync.get(['toggleSitesActive', 'toggleSitesList'], function (result) {
+    chrome.storage.sync.get(["toggleSitesActive", "toggleSitesList"], function (result) {
       _this.active = result.toggleSitesActive;
       _this.list = result.toggleSitesList;
     });
@@ -52,7 +75,7 @@ __webpack_require__.r(__webpack_exports__);
         toggleSitesActive: active
       }, function () {});
       chrome.browserAction.setIcon({
-        path: this.icons[active ? 'active' : 'inactive']
+        path: this.icons[active ? "active" : "inactive"]
       });
     },
     saveList: function saveList() {
@@ -165,7 +188,7 @@ var render = function () {
             },
           },
         },
-        [_vm._v("Off")]
+        [_vm._v("\n      Off\n    ")]
       ),
       _vm._v(" "),
       _c(
@@ -180,7 +203,7 @@ var render = function () {
             },
           },
         },
-        [_vm._v("On")]
+        [_vm._v("\n      On\n    ")]
       ),
     ]),
     _vm._v(" "),
@@ -222,7 +245,7 @@ var render = function () {
         attrs: { type: "button" },
         on: { click: _vm.saveList },
       },
-      [_vm._v("Save Site List")]
+      [_vm._v("\n    Save Site List\n  ")]
     ),
   ])
 }
